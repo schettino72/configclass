@@ -1,0 +1,30 @@
+language: python
+
+python:
+    - "2.7"
+    - "3.3"
+    - 'pypy'
+
+branches:
+  only:
+    - master
+    - test
+
+install:
+  - pip install . --use-mirrors
+  - pip install -r dev_requirements.txt
+  - pip install python-coveralls
+
+script:
+  - doit
+  - py.test
+  - if [[ $TRAVIS_PYTHON_VERSION == '3.3' ]]; then coverage run `which py.test`; fi
+
+after_success:
+  - if [[ $TRAVIS_PYTHON_VERSION == '3.3' ]]; then coveralls; fi
+
+
+notifications:
+    email:
+        on_success: change
+        on_failure: change
