@@ -23,7 +23,7 @@ setup (
     platforms = ['any'],
     license = 'MIT',
     py_modules = ['configclass'],
-    install_requires = ['mergedict'],
+    install_requires = ['mergedict>=0.2.0'],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

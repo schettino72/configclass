@@ -1,11 +1,11 @@
 from doitpy.pyflakes import Pyflakes
 
 
-DOIT_CONFIG = {'default_tasks': ['pyflakes']}
+DOIT_CONFIG = {'default_tasks': ['pyflakes', 'test']}
 
 
 def task_pyflakes():
-    yield Pyflakes().tasks('**/*.py')
+    yield Pyflakes().tasks('*.py')
 
 def task_test():
     return {
@@ -16,8 +16,8 @@ def task_test():
 def task_coverage():
     return {
         'actions': [
-            'coverage run `which py.test`',
-            'coverage report --include=configclass.py,test_configclass.py'],
+            'coverage run --source=configclass.py,test_configclass.py `which py.test`',
+            'coverage report --show-missing'],
         'verbosity': 2,
         }
 
