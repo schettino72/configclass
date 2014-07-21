@@ -48,7 +48,7 @@ A `Config` is a `dict` with a where:
 
 
 `configclass.ConfigMixin` can be used to create a `Config` class
-that is not based on `mergedict.ConfigDict`.
+that is not based on `mergedict.ConfigDict`. Check unittests for usage.
 
 
 
