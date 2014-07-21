@@ -1,7 +1,7 @@
 from doitpy.pyflakes import Pyflakes
 
 
-DOIT_CONFIG = {'default_tasks': ['pyflakes', 'test']}
+DOIT_CONFIG = {'default_tasks': ['pyflakes', 'test', 'doctest']}
 
 
 def task_pyflakes():
@@ -11,6 +11,12 @@ def task_test():
     return {
         'actions': ['py.test'],
         'file_dep': ['configclass.py', 'test_configclass.py'],
+        }
+
+def task_doctest():
+    return {
+        'actions': ['python -m doctest -v README.rst'],
+        'file_dep': ['configclass.py', 'README.rst'],
         }
 
 def task_coverage():

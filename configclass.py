@@ -5,6 +5,8 @@
 # Copyright (c) 2014 Eduardo Naufel Schettino
 # See LICENSE for details
 
+__version__ = (0, 1, 0)
+
 
 import copy
 
@@ -24,7 +26,8 @@ class ConfigMixin(object):
         super(ConfigMixin, self).__setitem__(key, value)
 
     def __repr__(self):
-        return '{}({})'.format(self.__class__.__name__, dict.__repr__(self))
+        items = ['{!r}: {!r}'.format(k, v) for k,v in sorted(self.items())]
+        return '{}({{{}}})'.format(self.__class__.__name__, ', '.join(items))
 
     # http://stackoverflow.com/questions/2060972
     # subclassing-python-dictionary-to-override-setitem

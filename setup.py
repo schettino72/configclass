@@ -13,7 +13,7 @@ with codecs.open(
 
 setup (
     name = 'configclass',
-    version = '0.1.0dev0',
+    version = '0.1.0',
     author = 'Eduardo Naufel Schettino',
     author_email = 'schettino72@gmail.com',
     description = 'A Python to class to hold configuration values.',
