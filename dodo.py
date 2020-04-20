@@ -22,7 +22,7 @@ def task_doctest():
 def task_coverage():
     return {
         'actions': [
-            'coverage run --source=configclass.py,test_configclass.py `which py.test`',
+            'coverage run --source=configclass,test_configclass `which py.test`',
             'coverage report --show-missing'],
         'verbosity': 2,
         }
